@@ -10,12 +10,24 @@ function initialiseTable() {
 }
 
 function updateBoard() {
+  while (board.firstChild) {
+    board.removeChild(board.firstChild);
+  }
+  board = document.getElementById("arrayBoard");
   for (let i = 0; i < currentSet.length; i++) {
-    let itemDiv = document.createElement("div");
+    let itemDiv;
+    let itemSize;
+    if (currentSet[i].itemSize) {
+      itemSize = currentSet[i].itemSize;
+    } else {
+      itemSize = currentSet[i];
+    }
+
+    itemDiv = document.createElement("div");
     itemDiv.setAttribute("class", "arrayElement");
     itemDiv.style.cssText =
       "height:" +
-      currentSet[i].itemSize * 3 +
+      itemSize * 5 +
       "px; width: 7px; margin-left: 3px; background-color: rgba(50, 107, 200, 0.8); color: transparent;";
     board.appendChild(itemDiv);
   }
@@ -46,7 +58,7 @@ class Table {
 class Item {
   constructor(amplitude) {
     this.itemSize = amplitude;
-    this.color = "blue";
+    this.color = "rgba(50, 107, 200, 0.8)";
   }
 }
 
