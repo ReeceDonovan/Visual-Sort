@@ -1,67 +1,151 @@
-const sleep = (milliseconds) => {
-  return new Promise((resolve) => setTimeout(resolve, milliseconds));
-};
+function mergeSort(set) {
+  let left = [];
+  let right = [];
+  let result;
 
-async function mergeSort() {
-  let result = currentSet;
-
-  let len = result.length;
-
-  let buffer = [];
-
-  for (let s = 1; s < len; s *= 2) {
-    for (let leftStart = 0; leftStart < len; leftStart += 2 * s) {
-      let left = leftStart;
-
-      let right = Math.min(left + s, len);
-
-      let leftLimit = right;
-      let rightLimit = Math.min(right + s, len);
-
-      let i = left;
-
-      while (left < leftLimit && right < rightLimit) {
-        if (result[left].itemSize <= result[right].itemSize) {
-          await sleep(50);
-          buffer[i] = result[left];
-          left++;
-          i++;
-          currentSet = buffer;
-          updateBoard();
-        } else {
-          await sleep(50);
-          buffer[i] = result[right];
-          right++;
-          i++;
-          currentSet = buffer;
-          updateBoard();
-        }
-      }
-
-      while (left < leftLimit) {
-        await sleep(50);
-        buffer[i] = result[left];
-        left++;
-        i++;
-        currentSet = buffer;
-        updateBoard();
-      }
-
-      while (right < rightLimit) {
-        await sleep(50);
-        buffer[i] = result[right];
-        right++;
-        i++;
-        currentSet = buffer;
-        updateBoard();
-      }
-    }
-
-    let temp = result;
-    result = buffer;
-    buffer = temp;
+  if (set.length <= 1) {
+    return set;
   }
+  let mid = Math.floor(set.length / 2);
+
+  for (let i = 0; i < mid; i++) {
+    left.push(set[i]);
+  }
+  for (let j = mid; j < set.length; j++) {
+    right.push(set[j]);
+  }
+  let leftValue = mergeSort(left);
+  let rightValue = mergeSort(right);
+  let leftValueNum;
+  let rightValueNum;
+  if (leftValue) {
+    leftValueNum = parseInt(leftValue[0].innerText);
+  }
+  if (rightValue) {
+    rightValueNum = parseInt(rightValue[0].innerText);
+  }
+
+  if (leftValueNum <= rightValueNum) {
+    result = merge(leftValue, rightValue);
+  } else {
+    result = merge(rightValue, leftValue);
+  }
+
+  updateDiv(result);
+  return result;
 }
+
+function merge(left, right) {
+  let result = [];
+  let i = 0;
+  let j = 0;
+
+  while (left.length > i && right.length > j) {
+    if (parseInt(left[i].innerText) <= parseInt(right[j].innerText)) {
+      result.push(left[i]);
+      i++;
+      updateDiv(result);
+      // updateDiv(result);
+      // sleep(500);
+    } else {
+      result.push(right[j]);
+      j++;
+      updateDiv(result);
+      // updateDiv(result);
+      // sleep(500);
+    }
+  }
+  return result.concat(left.slice(i)).concat(right.slice(j));
+}
+
+//   for (let s = 1; s < len; s += 2) {
+//     for (let leftStart = 0; leftStart < len; leftStart += 2 * s) {
+//       let left = leftStart;
+//       let right = Math.min(left + s, len);
+
+//       let leftLimit = right;
+//       let rightLimit = Math.min(right + s, len);
+
+//       let i = left;
+
+//       while (left < leftLimit && right < rightLimit) {
+//         if (result[left].style.height <= result[right].itemSize) {
+//           await sleep(50);
+//           buffer[i] = result[left];
+//           left++;
+//           i++;
+//           currentSet = buffer;
+//           updateBoard();
+//         } else {
+//           await sleep(50);
+//           buffer[i] = result[right];
+//           right++;
+//           i++;
+//         }
+//       }
+//     }
+//   }
+
+// async function mergeSort() {
+//   let result = currentSet;
+
+//   let len = result.length;
+
+//   let buffer = [];
+
+//   for (let s = 1; s < len; s *= 2) {
+//     for (let leftStart = 0; leftStart < len; leftStart += 2 * s) {
+//       let left = leftStart;
+
+//       let right = Math.min(left + s, len);
+
+//       let leftLimit = right;
+//       let rightLimit = Math.min(right + s, len);
+
+//       let i = left;
+
+//       while (left < leftLimit && right < rightLimit) {
+//         if (result[left].itemSize <= result[right].itemSize) {
+//           await sleep(50);
+//           buffer[i] = result[left];
+//           left++;
+//           i++;
+//           currentSet = buffer;
+//           updateBoard();
+//         } else {
+//           await sleep(50);
+//           buffer[i] = result[right];
+//           right++;
+//           i++;
+//           currentSet = buffer;
+//           updateBoard();
+//         }
+//       }
+
+//       while (left < leftLimit) {
+//         await sleep(50);
+//         buffer[i] = result[left];
+//         left++;
+//         i++;
+//         currentSet = buffer;
+//         updateBoard();
+//       }
+
+//       while (right < rightLimit) {
+//         await sleep(50);
+//         buffer[i] = result[right];
+//         right++;
+//         i++;
+//         currentSet = buffer;
+//         updateBoard();
+//       }
+//     }
+
+//     let temp = result;
+//     result = buffer;
+//     buffer = temp;
+//   }
+// }
 
 // let ops = 0;
 
