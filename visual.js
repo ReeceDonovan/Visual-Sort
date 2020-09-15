@@ -3,6 +3,7 @@ let speed = 1000;
 speedInput.addEventListener("input", visualSpeed);
 
 function visualSpeed() {
+  //Controlling the sort speed based off user input
   let boardSpeed = speedInput.value;
   switch (parseInt(boardSpeed)) {
     case 1:
@@ -28,6 +29,7 @@ let delay_time = 10000 / (Math.floor(numItems / 10) * speed);
 let delay = 0;
 
 function updateItem(container, height, color) {
+  //Updating item attributes such as colour while sort is active
   window.setTimeout(function () {
     container.style =
       " margin:0% " +

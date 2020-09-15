@@ -1,5 +1,5 @@
-// TODO: fix sort
 function Merge() {
+  //Using helper function for future proofing of disabling UI elements while sort in progress
   delay = 0;
 
   mergeBuffer(0, numItems - 1);
@@ -28,7 +28,7 @@ function mergeSort(left, middle, right) {
   }
   for (let n = 0; n < k; n++) {
     itemSizes[left++] = set[n];
-    updateItem(items[left - 1], itemSizes[left - 1], "green"); //Color update
+    updateItem(items[left - 1], itemSizes[left - 1], "green");
   }
 }
 
