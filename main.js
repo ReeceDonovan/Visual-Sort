@@ -63,5 +63,8 @@ function runSort() {
     case "Heap":
       Heap();
       break;
+    case "Radix":
+      Radix();
+      break;
   }
 }
