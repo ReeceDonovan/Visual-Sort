@@ -16,17 +16,14 @@ function generateBoard() {
   //Generate and Populate the board
   board.innerHTML = "";
   for (i = 0; i < numItems; i++) {
-    itemSizes[i] =
-      Math.floor(
-        Math.random() * 0.5 * (numItemsInput.max - numItemsInput.min)
-      ) + 10;
+    itemSizes[i] = Math.floor(Math.random() * numItems) + 1;
     items[i] = document.createElement("div");
     board.appendChild(items[i]);
     items[i].style =
-      " margin:0% 0.1%; background-color:blue; width: " +
+      " margin:0%; background-color:blue; width: " +
       (100 / numItems - 2 * 0.1) +
       "%; height: " +
-      itemSizes[i] +
+      (itemSizes[i] / numItems) * 100 +
       "%;";
   }
 }
