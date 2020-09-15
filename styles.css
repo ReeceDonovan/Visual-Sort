@@ -2,13 +2,17 @@
   margin: 0;
   padding: 0;
 }
-html,
-body {
-  height: 100%;
+html {
   color: #bfbfbf;
   background: #1f1f1f !important;
+  position: relative;
 }
 
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 input,
 select,
 textarea,
@@ -20,9 +24,44 @@ font {
   color: #bfbfbf;
 }
 
-#arrayBoard {
+.nav-heading {
+  font-size: larger;
+  font-weight: bold;
+  margin-top: 0.5%;
+}
+nav {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+nav .board-inputs {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 0.5%;
+}
+nav .algorithms {
   width: 100%;
-  height: 70vh;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 0.5%;
+}
+#i_gen {
+  margin-top: 0.5%;
+}
+.block {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #413737;
+  padding: 0.5% 1%;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+#arrayBoard {
+  flex: 25;
+  width: 100%;
   display: flex;
 }
-/* style="display: flex; height: 95%; width: 95%; margin: auto" */

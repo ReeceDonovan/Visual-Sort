@@ -14,7 +14,10 @@ numItemsInput.addEventListener("input", updateBoard);
 function generateBoard() {
   board.innerHTML = "";
   for (i = 0; i < numItems; i++) {
-    itemSizes[i] = Math.floor(Math.random() * numItems - 1) + 1;
+    itemSizes[i] =
+      Math.floor(
+        Math.random() * 0.5 * (numItemsInput.max - numItemsInput.min)
+      ) + 10;
     items[i] = document.createElement("div");
     board.appendChild(items[i]);
     items[i].style =
