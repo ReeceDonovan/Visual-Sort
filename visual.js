@@ -41,3 +41,14 @@ function updateItem(container, height, color) {
       ";";
   }, (delay += delay_time));
 }
+
+function showButtons() {
+  window.setTimeout(function () {
+    for (var i = 0; i < algoBtns.length; i++) {
+      algoBtns[i].disabled = false;
+      numItemsInput.disabled = false;
+      genBtn.disabled = false;
+      speedInput.disabled = false;
+    }
+  }, (delay += delay_time));
+}

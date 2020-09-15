@@ -3,6 +3,7 @@ function Merge() {
   delay = 0;
 
   mergeBuffer(0, numItems - 1);
+  showButtons();
 }
 
 function mergeSort(left, middle, right) {

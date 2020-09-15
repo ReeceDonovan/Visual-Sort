@@ -3,6 +3,7 @@ function Quick() {
   delay = 0;
 
   quickBuffer(0, numItems - 1);
+  showButtons();
 }
 
 function quickSort(left, right) {

@@ -21,4 +21,5 @@ function Bubble() {
     updateItem(items[j], itemSizes[j], "green");
   }
   updateItem(items[0], itemSizes[0], "green");
+  showButtons();
 }

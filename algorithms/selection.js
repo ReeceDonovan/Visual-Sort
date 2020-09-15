@@ -32,4 +32,5 @@ function Selection() {
     updateItem(items[i], itemSizes[i], "green");
   }
   updateItem(items[i - 1], itemSizes[i - 1], "green");
+  showButtons();
 }

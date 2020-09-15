@@ -2,6 +2,7 @@ function Heap() {
   delay = 0;
 
   heapSort();
+  showButtons();
 }
 
 function heapSwap(i, j) {

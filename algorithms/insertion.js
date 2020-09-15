@@ -30,4 +30,5 @@ function Insertion() {
     }
   }
   updateItem(items[j - 1], itemSizes[j - 1], "green");
+  showButtons();
 }

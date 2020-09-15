@@ -3,6 +3,7 @@ function Radix() {
   let input = itemSizes;
   let n = input.length;
   radixSort(input, n);
+  showButtons();
 }
 
 function radixGetMax(arr, n) {

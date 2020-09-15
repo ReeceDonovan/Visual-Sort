@@ -39,28 +39,46 @@ window.onload = updateBoard(); //Generate board on page load
 for (let i = 0; i < algoBtns.length; i++) {
   algoBtns[i].addEventListener("click", runSort);
 }
+
+function hideButtons() {
+  for (let i = 0; i < algoBtns.length; i++) {
+    algoBtns[i].disabled = true;
+    numItemsInput.disabled = true;
+    genBtn.disabled = true;
+    speedInput.disabled = true;
+  }
+}
 //Running the sorting algorithms, using a switch for future proofing of disabling UI elements while sort in progress
 function runSort() {
+  hideButtons();
+
   switch (this.innerHTML) {
     case "Merge":
+      updateBoard();
       Merge();
       break;
     case "Quick":
+      updateBoard();
       Quick();
       break;
     case "Selection":
+      updateBoard();
       Selection();
       break;
     case "Insertion":
+      updateBoard();
       Insertion();
       break;
     case "Bubble":
+      updateBoard();
       Bubble();
       break;
     case "Heap":
+      updateBoard();
       Heap();
       break;
     case "Radix":
+      updateBoard();
       Radix();
       break;
   }
