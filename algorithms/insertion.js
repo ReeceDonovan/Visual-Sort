@@ -1,7 +1,7 @@
 function Insertion() {
   delay = 0;
-
-  for (let j = 0; j < numItems; j++) {
+  let j;
+  for (j = 0; j < numItems; j++) {
     updateItem(items[j], itemSizes[j], "yellow");
 
     let currentKey = itemSizes[j];
@@ -29,5 +29,5 @@ function Insertion() {
       updateItem(items[n], itemSizes[n], "green");
     }
   }
-  updateItem(items[numItems - 1], itemSizes[numItems - 1], "green");
+  updateItem(items[j - 1], itemSizes[j - 1], "green");
 }
