@@ -1,7 +1,15 @@
+let numItemsInput = document.getElementById("i_num");
+let numItems = numItemsInput.value;
+let genBtn = document.getElementById("i_gen");
+let speedInput = document.getElementById("i_speed");
+let algoBtns = document.querySelectorAll(".algorithms button");
+
 let items = [];
 let itemSizes = [];
-let numItems;
 let board = document.getElementById("arrayBoard");
+
+genBtn.addEventListener("click", generateBoard);
+numItemsInput.addEventListener("input", updateBoard);
 
 function generateBoard() {
   board.innerHTML = "";
@@ -19,8 +27,35 @@ function generateBoard() {
 }
 
 function updateBoard() {
-  numItems = 50;
+  numItems = numItemsInput.value;
   generateBoard();
 }
 
 window.onload = updateBoard();
+
+for (let i = 0; i < algoBtns.length; i++) {
+  algoBtns[i].addEventListener("click", runSort);
+}
+
+function runSort() {
+  switch (this.innerHTML) {
+    case "Merge":
+      Merge();
+      break;
+    case "Quick":
+      Quick();
+      break;
+    case "Selection":
+      Selection();
+      break;
+    case "Insertion":
+      Insertion();
+      break;
+    case "Bubble":
+      Bubble();
+      break;
+    case "Heap":
+      Heap();
+      break;
+  }
+}
