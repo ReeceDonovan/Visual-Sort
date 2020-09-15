@@ -1,4 +1,4 @@
-let speed = 1000;
+let speed = 1000; //Default speed
 
 speedInput.addEventListener("input", visualSpeed);
 
