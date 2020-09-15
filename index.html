@@ -6,11 +6,41 @@
     <title>Visual Sorting</title>
   </head>
   <body style="height: 100%; margin: 0">
+    <header>
+      <nav>
+        <div class="board-inputs">
+          <p>Number of items:</p>
+          <input
+            id="i_num"
+            type="range"
+            min="20"
+            max="150"
+            step="1"
+            value="80"
+          />
+          <p>Speed of sorting:</p>
+          <input id="i_speed" type="range" min="1" max="5" step="1" value="4" />
+          <button id="i_gen">Generate Board</button>
+        </div>
+
+        <div class="sort-options">
+          <p class="nav-heading">Visual Sort</p>
+
+          <div class="algorithms">
+            <button>Merge</button>
+            <button>Quick</button>
+            <button>Selection</button>
+            <button>Insertion</button>
+            <button>Bubble</button>
+            <button style="margin-right: 0px">Heap</button>
+          </div>
+        </div>
+      </nav>
+    </header>
     <section
       id="arrayBoard"
       style="display: flex; height: 95%; width: 95%; margin: auto"
     ></section>
-    <button onclick="Merge()">Sort</button>
   </body>
   <script type="text/javascript" src="./main.js"></script>
   <script type="text/javascript" src="./merge.js"></script>
