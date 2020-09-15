@@ -32,12 +32,10 @@ function updateItem(container, height, color) {
   //Updating item attributes such as colour while sort is active
   window.setTimeout(function () {
     container.style =
-      " margin:0% " +
-      0.1 +
-      "%; width:" +
+      " margin:0%; width:" +
       (100 / numItems - 2 * 0.1) +
       "%; height:" +
-      height +
+      (height / numItems) * 100 +
       "%; background-color:" +
       color +
       ";";
